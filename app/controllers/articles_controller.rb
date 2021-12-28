@@ -17,6 +17,8 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params) # Rails will take title and description from the article 
+    @article.user = User.first
+    
     if @article.save
       flash[:notice] = "Article has been created successfully"
       redirect_to @article # short-cut for 'redirect_to article_path(@article)'
