@@ -1,13 +1,4 @@
-<% if @article.errors.any? %>
-  <h3>Following error occured: </h3>
-  <ul>
-    <% @article.errors.full_messages.each do |msg| %>
-      <li>
-        <%= msg %>
-      </li>
-    <% end %>
-  </ul>
-<% end %>
+<%= render 'shared/errors', obj: @article %>
 
 <%# form helper  %>
 <%= form_with(model: @article, local: true) do |f| %>
@@ -27,5 +18,7 @@
   <p>
     <%= f.submit %>
   </p>
-
+  <p>
+    <%= link_to 'Return to listing', articles_path %> 
+  </p>
 <% end %>
