@@ -1,0 +1,22 @@
+<h2>Please Enter Your Account</h2>
+
+<%# form helper  %>
+<%= form_with(scope: :session, url: login_path, local: true) do |f| %>
+  <p>
+    <%= f.label :email %>
+    <%= f.email_field :email, placeholder: "Enter email" %>
+  </p>
+
+  <p>
+    <%= f.label :password %>
+    <%= f.password_field :password, placeholder: "Enter password" %>
+  </p>
+
+  <p>
+    <%= f.submit 'Sign in'  %>
+  </p>
+  <p>
+    <%= link_to 'return to article listing', articles_path %>
+  </p>
+
+<% end %>

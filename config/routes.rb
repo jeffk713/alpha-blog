@@ -8,4 +8,8 @@ Rails.application.routes.draw do
   get 'signup', to: 'users#new'
 
   resources :users, except: [:new] # since `new` action is used by GET request 'signup'
+
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
 end
