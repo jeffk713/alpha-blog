@@ -18,7 +18,7 @@
         <% if purpose == 'index' %>
         <td><%= article.user.username%></td>
         <% end %>
-        <td><%= link_to 'Show', article_path(article)%></td>
+        <td><%= link_to 'View', article_path(article)%></td>
         <td><%= link_to 'Edit', edit_article_path(article)%></td>
         <td>
           <%= link_to 'Delete', 
