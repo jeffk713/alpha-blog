@@ -1,0 +1,28 @@
+<%= render 'shared/errors', obj: @user %>
+
+<%# form helper  %>
+<%= form_with(model: @user, local: true) do |f| %>
+
+  <p>
+    <%= f.label :username %>
+    <%= f.text_field :username, placeholder: "Enter a username" %>
+  </p>
+
+  <p>
+    <%= f.label :email %>
+    <%= f.email_field :email, placeholder: "Enter an email" %>
+  </p>
+
+  <p>
+    <%= f.label :password %>
+    <%= f.password_field :password, placeholder: "Enter a password" %>
+  </p>
+
+  <p>
+    <%= f.submit(@user.new_record? ? "Sign Up" : "Update Account")   %>
+  </p>
+  <p>
+    <%= link_to 'return to article listing', articles_path %>
+  </p>
+
+<% end %>

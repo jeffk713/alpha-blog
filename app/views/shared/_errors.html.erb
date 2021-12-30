@@ -1,0 +1,10 @@
+<% if obj.errors.any? %>
+  <h3>Following error occured upon saving <%= obj.class.name.downcase%>: </h3>
+  <ul>
+    <% obj.errors.full_messages.each do |msg| %>
+      <li>
+        <%= msg %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

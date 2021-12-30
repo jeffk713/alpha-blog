@@ -1,0 +1,15 @@
+<h2><%= @user.username %>'s profile</h2>
+
+<%= gravatar_for @user, size: 150 %>
+
+<div>
+  <%= @user.email %>
+</div>
+
+<div>
+  <%= link_to 'Edit profile', edit_user_path(@user) %>
+</div>
+
+<h2><%= @user.username %>'s articles</h2>
+
+<%= render 'articles/article', obj: @user.articles, purpose: 'profile' %>
