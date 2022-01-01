@@ -17,7 +17,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params) # Rails will take title and description from the article 
-    @article.user = User.find(session[:user_id])
+    @article.user = current_user
     
     if @article.save
       flash[:notice] = "Article has been created successfully"
