@@ -1,7 +1,10 @@
-<h2>Articles listing</h2>
-
-<%= render 'article', obj: @articles, purpose: 'index' %>
+<h2>Articles listing: </h2>
 
 <p>
   <%= link_to 'Create a new artiicle', new_article_path %>
 </p>
+<div class="article-pagination">
+  <%= will_paginate @articles%>
+</div>
+<%= render 'article', obj: @articles, purpose: 'index' %>
+

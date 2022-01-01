@@ -1,15 +1,27 @@
-<h2><%= @user.username %>'s profile</h2>
+<h2><%= @user.username %>'s profile: </h2>
 
-<%= gravatar_for @user, size: 150 %>
-
-<div>
-  <%= @user.email %>
+<div class="user-container for-profile">
+  <div class="user-box">
+    <div class="user-image">
+      <%= gravatar_for(@user,size: 150) %>
+    </div>
+    <div class="user-info">
+      <div>
+        <p><%= pluralize(@user.articles.count, "article")%> posted</p>
+      </div>
+      <div>
+        <%= link_to 'Edit Profile', edit_user_path(@user)%>
+      </div>
+      <div>
+        <small>Joined <%= time_ago_in_words(@user.created_at)%> ago</small>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div>
-  <%= link_to 'Edit profile', edit_user_path(@user) %>
+<h2><%= @user.username %>'s articles: </h2>
+
+<div class="article-pagination">
+<%= will_paginate @articles%>
 </div>
-
-<h2><%= @user.username %>'s articles</h2>
-
-<%= render 'articles/article', obj: @user.articles, purpose: 'profile' %>
+<%= render 'articles/article', obj: @articles, purpose: 'profile' %>
