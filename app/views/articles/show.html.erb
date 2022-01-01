@@ -1,9 +1,20 @@
 <h2>Article Detail</h2>
 
-<p><strong>Title: </strong><%= @article.title %></p>
-<p><strong>Description: </strong><%= @article.description %></p>
-<p><strong>By </strong><%= link_to @article.user.username, @article.user %></p>
+<div>
+  <%= link_to 'Return to listing', articles_path %>  
+</div>
 
-<%= link_to 'Edit', edit_article_path(@article) %> | 
-<%= link_to 'Delete', article_path(@article), method: :delete, data: { confirm: "Would you like to delete?"} %> | 
-<%= link_to 'Return to listing', articles_path %>  
+<p>
+  <strong>Title: </strong><%= @article.title %>
+</p>
+<p>
+  <strong>Description: </strong><%= @article.description %>
+</p>
+<p>
+  <strong>By </strong><%= link_to @article.user.username, @article.user %>
+</p>
+
+<% if logged_in? && @article.user == current_user %>
+  <%= link_to 'Edit', edit_article_path(@article) %> | 
+  <%= link_to 'Delete', article_path(@article), method: :delete, data: { confirm: "Would you like to delete?"} %>
+<% end %>

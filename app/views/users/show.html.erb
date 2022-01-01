@@ -9,9 +9,11 @@
       <div>
         <p><%= pluralize(@user.articles.count, "article")%> posted</p>
       </div>
-      <div>
-        <%= link_to 'Edit Profile', edit_user_path(@user)%>
-      </div>
+      <% if logged_in? && @user == current_user %>
+        <div>
+          <%= link_to 'Edit Profile', edit_user_path(@user)%>
+        </div>
+      <% end %>
       <div>
         <small>Joined <%= time_ago_in_words(@user.created_at)%> ago</small>
       </div>

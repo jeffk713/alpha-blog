@@ -1,10 +1,14 @@
 <h2>Articles listing: </h2>
 
-<p>
-  <%= link_to 'Create a new artiicle', new_article_path %>
-</p>
+<% if logged_in? %>
+  <p>
+    <%= link_to 'Create a new artiicle', new_article_path %>
+  </p>
+<% end %>
+
 <div class="article-pagination">
   <%= will_paginate @articles%>
 </div>
+
 <%= render 'article', obj: @articles, purpose: 'index' %>
 
