@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
+  before_action :require_user, only: [:edit, :update]
+  before_action :require_themselves, only: [:edit, :update]
   
   def index
     @users = User.paginate(page: params[:page], per_page: 3)
@@ -29,7 +31,6 @@ class UsersController < ApplicationController
   end
 
   def update
-
     if @user.update(user_params)
       flash[:notice] = "Your account has been updated successfully"
       redirect_to @user
@@ -37,8 +38,6 @@ class UsersController < ApplicationController
       render 'edit'
     end  
   end
-
-  
 
   private
 
@@ -48,6 +47,13 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+  end
+  
+  def require_themselves
+    if current_user != @user
+      flash[:notice] = "Access is denied"
+      redirect_to @user
+    end
   end
   
 
