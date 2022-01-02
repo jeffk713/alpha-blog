@@ -1,3 +1,14 @@
 // Place all the styles related to the Articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.article-container {
+  width: 60%;
+  margin: 30px auto;
+  border: solid black 1px;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.article-pagination {
+  text-align: center;
+}

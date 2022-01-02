@@ -10,8 +10,7 @@
       <%= link_to current_user.username, user_path(current_user) %> |
       <%= link_to 'Sign out', logout_path, method: :delete %>
     <% else %>
-      <%= link_to 'Sign in', login_path %> |
-      <%= link_to 'Sign up', signup_path %>  
+      <%= link_to 'Sign in', login_path %>
     <% end %>
   </div>
 </div>
