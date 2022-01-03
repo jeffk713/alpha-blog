@@ -1,5 +1,8 @@
 <h2>Alpha Bloggers:</h2>
 
+<div class="pagination">
+<%= will_paginate @users%>
+</div>
 <div>
   <% @users.each do |user| %>
     <% if logged_in? && user == current_user %>
