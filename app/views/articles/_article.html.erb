@@ -19,7 +19,7 @@
         </div>
       <% end %>
       <%= link_to 'View', article_path(article)%> 
-      <% if logged_in? && article.user == current_user %>
+      <% if logged_in? && (article.user == current_user || current_user.admin?) %>
         | <%= link_to 'Edit', edit_article_path(article)%>
         | <%= link_to 'Delete', 
           article_path(article), 

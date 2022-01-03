@@ -54,7 +54,7 @@ class ArticlesController < ApplicationController
   end
 
   def require_author
-    if current_user != @article.user
+    if current_user != @article.user && !current_user.admin?
       flash[:notice] = "Access is denied"
       redirect_to @article
     end

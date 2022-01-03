@@ -1,12 +1,15 @@
 <h2>Alpha Bloggers:</h2>
 
+<div class="pagination">
+<%= will_paginate @users%>
+</div>
 <div>
   <% @users.each do |user| %>
     <% if logged_in? && user == current_user %>
     <% else %>
       <div class="user-container">
         <h3>
-          <%= user.username %>
+          <%= user.username %> <%= "(admin)" if user.admin?%>
         </h3>
         <div class="user-box">
           <div class="user-image">
