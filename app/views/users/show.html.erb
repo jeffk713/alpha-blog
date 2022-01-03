@@ -1,4 +1,6 @@
-<h2><%= @user.username %>'s profile: </h2>
+<h2>
+  <%= @user.username %>'s profile<%= "(admin)" if @user.admin?%>: 
+</h2>
 
 <div class="user-container for-profile">
   <div class="user-box">
@@ -28,7 +30,7 @@
 </div>
 <%= render 'articles/article', obj: @articles, purpose: 'profile' %>
 
-<% if logged_in? && @user == current_user %>
+<% if logged_in? && (@user == current_user || current_user.admin?)%>
   <div>
     <%= link_to 'Delete account', user_path(@user), method: :delete, data: { confirm: "would you like to delete your account?"}%>
   </div>

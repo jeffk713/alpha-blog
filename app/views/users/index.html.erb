@@ -9,7 +9,7 @@
     <% else %>
       <div class="user-container">
         <h3>
-          <%= user.username %>
+          <%= user.username %> <%= "(admin)" if user.admin?%>
         </h3>
         <div class="user-box">
           <div class="user-image">
